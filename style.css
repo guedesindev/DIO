@@ -1,0 +1,47 @@
+body {
+  line-height: 1.5rem;
+}
+
+h2 {
+  text-transform: uppercase;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+p {
+  text-align: justify;
+  margin: 0.5rem 1rem;
+  font-family: Nunito sans-serif;
+  font-size: 1.25rem;
+}
+
+a {
+  text-decoration: none;
+  font-size: 1.25rem;
+  color: #03153a;
+}
+
+a:visited {
+  color: #2056c3;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  font-size: 2rem;
+}
+
+figure {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+img {
+  width: 80%;
+  max-width: 40rem;
+}
