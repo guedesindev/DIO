@@ -1,0 +1,31 @@
+"Ei, você aí! Já imaginou transformar uma xícara de café e algumas linhas de código em decisões que mudam o rumo de empresas inteiras? Cara… eu Nando Guedes, tô completamente empolgado! Hoje a gente vai falar de uma parada que tá mudando tudo — Ciência de Dados! E o melhor: dá pra entrar nessa, mesmo que você nunca tenha programado antes ou esteja vindo de outra área. Vem comigo, que esse é só o começo!"
+
+Imagina só: você trabalha há anos com administração, marketing, logística... e começa a perceber que os dados estão por toda parte. De planilhas a relatórios, tudo é dado esperando ser entendido.
+A boa notícia? Nunca foi tão possível — e necessário — migrar de área. O mercado de Ciência de Dados está em expansão acelerada, e ele precisa de pessoas com vivência, com bagagem real de outras áreas, que saibam fazer perguntas e tenham curiosidade.
+
+E aqui vai o segredo: não é só sobre programar. É sobre entender pessoas, padrões, negócios. E tudo isso, você já traz com você.
+
+Mas afinal… o que é Ciência de Dados?
+
+É o conjunto de técnicas e ferramentas que ajudam a coletar, organizar, entender e tirar conclusões dos dados.
+Em outras palavras: é transformar aquele monte de número em decisões inteligentes.
+Ela mistura estatística, lógica, tecnologia e um quê de investigação, quase como um detetive dos dados!
+
+A Júlia era professora de geografia. Começou a estudar por conta, fez alguns cursos gratuitos, e hoje trabalha analisando dados climáticos para um laboratório de sustentabilidade.
+
+O Marcos era bancário. Estressado, cansado. Começou a estudar Ciência de Dados no tempo livre. Em dois anos, virou analista numa fintech — hoje ele vive dizendo: “Nunca imaginei que mexer com números pudesse ser tão legal.”
+
+E tem a Carol, que vinha da área de saúde. Levou sua experiência com pacientes pra dentro dos dados. Hoje ajuda a construir modelos que previnem doenças antes mesmo de surgirem.
+
+Essas pessoas começaram do zero, mas não estavam zeradas: carregavam histórias, experiências — e isso conta muito.
+
+
+E aí, curtiu essa primeira conversa?
+Então segura essa: no próximo episódio, a gente vai falar sobre um passo importantíssimo —
+“Ciência de Dados, por onde começar?”
+Te espero aqui com mais uma xícara de café, um pouco mais de código, e muitas ideias pra te ajudar nessa transição.
+
+Porque no fim das contas…
+Toda grande mudança começa com um bom café e algumas linhas de código.
+
+Até mais! 
