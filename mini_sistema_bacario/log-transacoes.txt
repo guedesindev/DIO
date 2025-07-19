@@ -5,3 +5,11 @@
 [17/07/2025 20:27:22] Função 'criar_cliente' executada com argumentos . Retornou None
 [17/07/2025 20:29:34] Função 'criar_cliente' executada com argumentos . Retornou None
 [17/07/2025 20:30:20] Função 'criar_cliente' executada com argumentos . Retornou None
+
+
+Evolução do sistema
+
+Utilização de Geradores e Iteradores
+Criação de Log de operações salvando em um arquivo txt
+Criação de um arquivo .csv para salvar usuários e contas criadas.
+Criar um diretório para armazenar os arquivos (shutil)
