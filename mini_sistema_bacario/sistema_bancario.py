@@ -42,10 +42,16 @@ def log_transacao(tipo_transacao): # tipo_transação é o argumento passado na 
       # log_text = f"{data_hora}: {func.__name__.upper()}\n"
       # Salvar o log pós a execução da transação
       try:
-        if not os.path.exists(ROOT_PATH/'log-transacoes.txt'):
-          with open('log-transacoes.txt', 'w', encoding='utf-8') as logfile:
-            logfile.write(f"\n**** LOG DE TRANSAÇÃO ****\n")
-            logfile.write(log_text)
+        if os.path.exists(ROOT_PATH/'arquivos'):
+          pass
+        else:
+          os.mkdir(ROOT_PATH/'arquivos')
+        
+        file = ROOT_PATH/'arquivos'/'log-transacoes.txt'
+        if not os.path.exists(file):
+            with open(file, 'w', encoding='utf-8') as logfile:
+              logfile.write(f"\n**** LOG DE TRANSAÇÃO ****\n")
+              logfile.write(log_text)
         else:
           with open('log-transacoes.txt', 'a', encoding='utf-8') as log:
             log.write(log_text)
