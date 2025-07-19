@@ -1,0 +1,8 @@
+[19/07/2025 17:32:01] Função 'criar_cliente' executada com argumentos . Retornou None
+[19/07/2025 17:32:28] Função 'criar_conta' executada com argumentos 1[<PessoaFisica: (12345678916)>][<ContaCorrente: ('0001', '1', 'Fernando')>]. Retornou None
+[19/07/2025 17:35:47] Função 'criar_cliente' executada com argumentos . Retornou None
+[19/07/2025 17:35:59] Função 'criar_conta' executada com argumentos 1[<PessoaFisica: (98765432116)>, <PessoaFisica: (32165498761)>][<ContaCorrente: ('0001', '1', 'Ádila')>]. Retornou None
+[19/07/2025 17:39:58] Função 'criar_conta' executada com argumentos 1[][]. Retornou None
+[19/07/2025 17:40:14] Função 'criar_cliente' executada com argumentos . Retornou None
+[19/07/2025 17:40:21] Função 'criar_conta' executada com argumentos 1[<PessoaFisica: (12345678916)>][<ContaCorrente: ('0001', '1', 'Fernando')>]. Retornou None
+[19/07/2025 17:47:09] Função 'criar_cliente' executada com argumentos . Retornou None

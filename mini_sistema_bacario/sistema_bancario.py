@@ -5,7 +5,7 @@ import validacoes_cadastro_usuario as validacoes
 from functools import wraps
 from pathlib import Path
 
-from usuarios import criar_arquivo, adicionar_usuario
+from usuarios import criar_arquivo, adicionar_usuario, ler_csv, pegar_dados_csv
 
 ROOT_PATH = Path(__file__).parent
 
@@ -42,9 +42,7 @@ def log_transacao(tipo_transacao): # tipo_transação é o argumento passado na 
       # log_text = f"{data_hora}: {func.__name__.upper()}\n"
       # Salvar o log pós a execução da transação
       try:
-        if os.path.exists(ROOT_PATH/'arquivos'):
-          pass
-        else:
+        if not os.path.exists(ROOT_PATH/'arquivos'):
           os.mkdir(ROOT_PATH/'arquivos')
         
         file = ROOT_PATH/'arquivos'/'log-transacoes.txt'
@@ -447,12 +445,14 @@ def criar_cliente():
     
     cliente = PessoaFisica(usuario.get('cpf'), usuario.get('nome'), usuario.get('data_nascimento'), usuario.get('endereco'))
     # Criar um CSV com os dados do cliente
-    if not os.path.exists(ROOT_PATH/'usuarios.csv'):
+    if not os.path.exists(ROOT_PATH/'arquivos'):
+      os.mkdir('arquivos')
+
+    file = ROOT_PATH / 'arquivos' / 'clientes.csv'
+    if not os.path.exists(file):
       criar_arquivo()
-      adicionar_usuario([usuario['cpf'], usuario['nome'], usuario['data_nascimento'], usuario['endereco']], 'users.csv')
-    else:
-      print(f" Arquivo users.csv existe: {os.path.exists(ROOT_PATH/'users.csv')}")
-      adicionar_usuario([usuario['cpf'], usuario['nome'], usuario['data_nascimento'], usuario['endereco']], 'users.csv')
+      
+    adicionar_usuario([usuario['cpf'], usuario['nome'], usuario['data_nascimento'], usuario['endereco']], file)
 
 
     validacoes.clientes.append(cliente)
@@ -476,6 +476,9 @@ def criar_conta(numero_conta, clientes, contas):
           conta = ContaCorrente.nova_conta(cliente=cliente, numero=numero_conta)
           contas.append(conta)
           cliente.contas.append(conta)
+          
+          file = ROOT_PATH / 'arquivos' / 'clientes.csv'
+          ler_csv(file)
           print("\n=== Conta criada com sucess! ===\n")
           break
         else:
@@ -504,7 +507,11 @@ def localizar_cli(cpf, clientes):
 
 
 def main():
-  clientes = validacoes.clientes
+  clientes = []
+  file = ROOT_PATH/'arquivos'/'clientes.csv'
+  if os.path.exists(file):
+    for cliente in pegar_dados_csv(file):
+      clientes.append(cliente)
   contas = []
 
   print('\n==================================================')
@@ -536,5 +543,3 @@ def main():
 
 if __name__=='__main__':
   main()
-
-
