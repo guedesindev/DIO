@@ -1,3 +1,0 @@
-
-**** LOG DE TRANSAÇÃO ****
-[19/07/2025 17:34:11] Função 'criar_cliente' executada com argumentos . Retornou None

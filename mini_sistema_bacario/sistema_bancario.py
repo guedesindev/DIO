@@ -5,7 +5,7 @@ import validacoes_cadastro_usuario as validacoes
 from functools import wraps
 from pathlib import Path
 
-from usuarios import criar_arquivo, adicionar_usuario, ler_csv, pegar_dados_csv
+from usuarios import criar_arquivo, adicionar_usuario, ler_csv, pegar_dados_csv, adicionar_contas
 
 ROOT_PATH = Path(__file__).parent
 
@@ -452,10 +452,10 @@ def criar_cliente():
     if not os.path.exists(file):
       criar_arquivo()
       
-    adicionar_usuario([usuario['cpf'], usuario['nome'], usuario['data_nascimento'], usuario['endereco']], file)
+    adicionar_usuario(cliente, file)
 
 
-    validacoes.clientes.append(cliente)
+    # validacoes.clientes.append(cliente)
     print("\n=== Finalização de Cadastro de Cliente ===============")
     print("\n=============== Cliente Cadastrado Com Sucesso !===============")
     
@@ -478,14 +478,16 @@ def criar_conta(numero_conta, clientes, contas):
           cliente.contas.append(conta)
           
           file = ROOT_PATH / 'arquivos' / 'clientes.csv'
-          ler_csv(file)
-          print("\n=== Conta criada com sucess! ===\n")
+          adicionar_contas(cliente, file)
+          # ler_csv(file)
+          print("\n=== Conta criada com sucesso! ===\n")
           break
         else:
           print('Cliente não localizado. Deseja cadastrar novo cliente?')
           resposta = input(f"[S]im / [N]ão").strip()
           if resposta.lower() == 's':
             print(f"Cadastrando novo cliente")
+            criar_cliente()
           elif resposta.lower() == 'n':
             print(f"Voltando ao menu inicial...")
             break
@@ -499,8 +501,10 @@ def listar_contas(contas):
   print(contas_listadas)
 
 def localizar_cli(cpf, clientes):
+    print("Clientes\n", clientes)
     for cliente in clientes:
       if cliente.cpf == cpf:
+        print('Cliente: ', cliente)
         return cliente
     print('Cliente não localizado, favor verifique o CPF digitado.')
     return None        
@@ -511,7 +515,8 @@ def main():
   file = ROOT_PATH/'arquivos'/'clientes.csv'
   if os.path.exists(file):
     for cliente in pegar_dados_csv(file):
-      clientes.append(cliente)
+      novo_cliente = PessoaFisica(cpf=cliente[0], nome=cliente[1], data_nascimento=cliente[2], endereco=cliente[3])
+      clientes.append(novo_cliente)
   contas = []
 
   print('\n==================================================')

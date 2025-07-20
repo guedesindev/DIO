@@ -17,12 +17,11 @@ def criar_arquivo():
     writer.writerow(['cpf', 'nome', 'data_nascimento', 'endereco', 'num_contas'])
 
 
-def adicionar_usuario(dados:list, csvfile):
+def adicionar_usuario(cliente, csvfile):
   with open(csvfile, 'a', encoding='utf-8', newline='') as file:
     writer = csv.writer(file, delimiter=',')
-    user_data = [dado for dado in dados]
-    print(user_data)
-    writer.writerow(user_data)
+    dados = [cliente.cpf, cliente.nome, cliente.data_nascimento, cliente.endereco]
+    writer.writerow(dados)
 
 
 def pegar_dados_csv(file):
@@ -44,3 +43,40 @@ def ler_csv(file):
     reader = csv.reader(csvfile, delimiter=',')
     for row in reader:
       print(row)
+
+
+def adicionar_contas(cliente, file) -> None:
+  """
+  Localiza o cliente e altera sua lista de contas e adicionar nova conta
+
+  Args:
+    cliente (PessoaFisica): A lista de contas do cliente.
+    file (str): o endereço do arquivo clientes.csv
+  """
+
+  linhas = []
+  try:
+    with open(file, 'r', encoding='utf-8', newline='') as csvfile:
+      reader = csv.reader(csvfile, delimiter=',')
+      linhas = list(reader)
+
+    for i, linha in enumerate(linhas):
+      if i == 0:
+        continue
+      
+      if linha[0] == cliente.cpf:
+        linha.append(cliente.contas)
+        linhas[i] = linha
+        print(i, linha)
+
+    with open(file, 'w', encoding='utf-8', newline='') as csvfile:
+      writer = csv.writer(csvfile, delimiter=',')
+      for linha in linhas:
+        print(f"Linha: {linha}")
+        writer.writerow(linha)
+    
+    print(f"Lista de contas: '{cliente.contas}' adicionado ao cliente")
+  except FileNotFoundError:
+    print(f"Erro: O arquivo '{file}' não foi encontrado.")
+  except Exception as e:
+    print(f"Ocorreu um erro: {e}")
